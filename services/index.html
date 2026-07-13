@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRYQQJ21SY"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CRYQQJ21SY');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="J&W Windows services — exterior and interior window cleaning, solar panel cleaning, gutter cleaning, and soft scrubs across Chester, Montgomery, Delaware, and Carbon counties." />
+  <title>Services | J&W Windows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../src/main.css" />
+  <script type="module" src="../src/main.js"></script>
+</head>
+<body>
+
+  <nav class="nav-root scrolled" x-data="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" @click="closeMenu()">
+        <img src="../J&WLOGO.png" alt="J&W Windows" />
+        <span class="nav-logo-text hidden sm:block">J&amp;W Windows</span>
+      </a>
+      <ul class="nav-links list-none m-0 p-0">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/services/" class="nav-link active">Services</a></li>
+        <li><a href="/gallery/" class="nav-link">Gallery</a></li>
+        <li><a href="/reviews/" class="nav-link">Reviews</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="/contact/" class="nav-cta">Get a Free Quote</a>
+      <button class="hamburger" @click="toggleMenu()" aria-label="Toggle menu">
+        <span :class="{ 'rotate-45 translate-y-2': menuOpen }"></span>
+        <span :class="{ 'opacity-0': menuOpen }"></span>
+        <span :class="{ '-rotate-45 -translate-y-2': menuOpen }"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" x-cloak :class="{ open: menuOpen }">
+      <a href="/" @click="closeMenu()">Home</a>
+      <a href="/about/" @click="closeMenu()">About</a>
+      <a href="/services/" @click="closeMenu()">Services</a>
+      <a href="/gallery/" @click="closeMenu()">Gallery</a>
+      <a href="/reviews/" @click="closeMenu()">Reviews</a>
+      <a href="/contact/" @click="closeMenu()">Contact</a>
+      <a href="/contact/" class="mobile-cta" @click="closeMenu()">Get a Free Quote</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <div class="page-hero-inner">
+        <span class="section-label text-sky">What We Offer</span>
+        <h1>Services &amp; Pricing</h1>
+        <p>Premium exterior and interior care for windows, solar panels, gutters, and siding across Chester, Montgomery, Delaware, and Carbon counties.</p>
+      </div>
+    </div>
+
+    <section class="section-light">
+      <div class="section-inner">
+
+        <!-- Exterior -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start pb-20 mb-20 border-b border-ink-600/10">
+          <div class="md:pt-4">
+            <span class="section-label">01</span>
+            <h2 class="section-heading text-ink">Exterior Window<br>Cleaning</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">Our exterior service covers glass, sills, frames, and tracks. We also clean garage door panes, sliders, storm doors, and skylights — every opening, not just the easy ones.</p>
+            <p class="text-ink-500 mt-4 leading-relaxed">We use professional-grade equipment including a water-fed pole system for higher windows, delivering a streak-free finish without ladders on your property.</p>
+          </div>
+          <div>
+            <img src="../MeunierHouseWindowExtension.PNG" alt="Exterior window cleaning" class="w-full h-auto" style="object-position: center top;" />
+          </div>
+        </div>
+
+        <!-- Interior -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start pb-20 mb-20 border-b border-ink-600/10">
+          <div class="md:order-2 md:pt-4">
+            <span class="section-label">02</span>
+            <h2 class="section-heading text-ink">Interior Window<br>Cleaning</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">Interior cleaning is done with care around your furniture, flooring, and decor. We use microfiber cloths and professional solution to leave glass spotless and streak-free — no drips, no mess left behind.</p>
+          </div>
+          <div class="md:order-1">
+            <img src="../Interior CLean.png" alt="Interior window cleaning" class="w-full h-auto" />
+          </div>
+        </div>
+
+        <!-- Screen Cleaning -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start pb-20 mb-20 border-b border-ink-600/10">
+          <div class="md:pt-4">
+            <span class="section-label">03</span>
+            <h2 class="section-heading text-ink">Screen Cleaning</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">We carefully clean window screens to remove dust, pollen, and debris — so they look refreshed and let in more light. Usually done alongside a full window clean.</p>
+          </div>
+          <div>
+            <img src="../IMG_2597.png" alt="Screen cleaning" class="w-full h-auto" />
+          </div>
+        </div>
+
+        <!-- Solar Panels -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start pb-20 mb-20 border-b border-ink-600/10">
+          <div class="md:order-2 md:pt-4">
+            <span class="section-label">04</span>
+            <h2 class="section-heading text-ink">Solar Panel<br>Cleaning</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">Safe, streak-free solar panel cleaning that helps restore appearance while protecting your system's surface. Dirt and debris buildup can reduce output — we clear it without damaging panels.</p>
+          </div>
+          <div class="md:order-1">
+            <img src="../SolarPanels.PNG" alt="Solar panel cleaning" class="w-full h-auto" style="object-position: center 15%;" />
+          </div>
+        </div>
+
+        <!-- Gutters -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start pb-20 mb-20 border-b border-ink-600/10">
+          <div class="md:pt-4">
+            <span class="section-label">05</span>
+            <h2 class="section-heading text-ink">Gutter Cleaning</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">Debris removal, flushing, and inspection to help keep water flowing properly and protect your home from clogs and overflow. We do the whole run, not just the visible sections.</p>
+          </div>
+          <div>
+            <img src="../GuttersBandA.PNG" alt="Gutter cleaning before and after" class="w-full h-auto" />
+          </div>
+        </div>
+
+        <!-- Soft Scrubs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          <div class="md:order-2 md:pt-4">
+            <span class="section-label">06</span>
+            <h2 class="section-heading text-ink">Soft Scrubs for<br>Siding &amp; Brick</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">Soft scrubs for siding, brick, and other exterior surfaces remove dirt, mildew, and buildup without damaging your home's finish. A clean exterior makes the whole property look cared for.</p>
+          </div>
+          <div class="md:order-1">
+            <img src="../Soft Scrub.png" alt="Soft scrubs for siding and brick" class="w-full h-auto" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-dark">
+      <div class="section-inner">
+        <span class="section-label text-sky-light">Transparent Rates</span>
+        <h2 class="section-heading text-white mb-3">Pricing</h2>
+        <p class="text-white/60 mb-10 max-w-xl leading-relaxed">Pricing varies based on window type, number of panes, and whether the job includes interior and exterior work. Reach out for a free on-site estimate.</p>
+        <div class="overflow-x-auto">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Rate</th>
+                <th class="hidden md:table-cell">What's Included</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-semibold text-ink">Window Cleaning</td>
+                <td class="text-sky font-semibold">$11 – $15 per window</td>
+                <td class="hidden md:table-cell text-ink-500 text-sm">Interior and exterior glass, tracks, sills, frames, and optional storm window care.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-ink">Screen Cleaning</td>
+                <td class="text-sky font-semibold">$5 per screen</td>
+                <td class="hidden md:table-cell text-ink-500 text-sm">Dust, pollen, and debris removal using gentle cleaning methods.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-ink">Solar Panel Cleaning</td>
+                <td class="text-sky font-semibold">$15 – $20 per panel</td>
+                <td class="hidden md:table-cell text-ink-500 text-sm">Streak-free panel washing to remove dirt and buildup while protecting surfaces.</td>
+              </tr>
+              <tr>
+                <td class="font-semibold text-ink">Gutter Cleaning</td>
+                <td class="text-sky font-semibold">$75 – $100 per side</td>
+                <td class="hidden md:table-cell text-ink-500 text-sm">Debris removal, flush, and inspection to help prevent clogs and overflow.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <h2>Get a Free Estimate</h2>
+      <p>Tell us about your home and we'll get back to you with a price. No obligation.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contact/" class="btn-white">Request a Free Quote</a>
+        <a href="tel:+14843564168" class="btn-white-outline">Call (484)-356-4168</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>J&amp;W Windows</h3>
+        <p class="text-sm leading-relaxed text-white/50 mt-2">Family owned and operated window cleaning across Chester, Montgomery, Delaware, and Carbon counties, PA.</p>
+        <p class="text-sm mt-4"><a href="tel:+14843564168" class="text-white/60 hover:text-white no-underline">(484)-356-4168</a><br><a href="mailto:23jmeunier@gmail.com" class="text-white/60 hover:text-white no-underline">23jmeunier@gmail.com</a></p>
+      </div>
+      <nav class="footer-nav">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/reviews/">Reviews</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h4>Service Area</h4>
+        <p class="text-white/50 text-sm leading-relaxed">Chester County · Montgomery County · Delaware County · Carbon County (including Lake Harmony &amp; Towamensing Trails)</p>
+        <p class="mt-5"><a href="https://www.bbb.org" target="_blank" rel="noopener" class="text-sky text-sm font-semibold hover:underline">BBB Accredited Business ↗</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 J&amp;W Windows. All rights reserved.</span>
+      <a href="https://g.page/r/CaxtA_Q3yh1cEAI/review" target="_blank" rel="noopener" class="text-white/40 hover:text-white/70 no-underline">Leave a Google Review ↗</a>
+    </div>
+  </footer>
+
+</body>
+</html>

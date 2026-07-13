@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -11,141 +11,205 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="J&W Windows - Professional window cleaning services across Chester, Montgomery, Delaware, and Carbon counties. Crystal clear results, every time." />
-  <meta name="keywords" content="window cleaning, Chester County, residential window cleaning, J&W Windows" />
-  <meta name="author" content="J&W Windows" />
-  <title>J&W Windows | Professional Window Cleaning - Chester County</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="J&W Windows — Professional window cleaning across Chester, Montgomery, Delaware, and Carbon counties. Owner-operated, fully insured, BBB Accredited." />
+  <title>J&W Windows | Professional Window Cleaning — Chester County, PA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="src/main.css" />
+  <script type="module" src="src/main.js"></script>
 </head>
 <body>
 
-  
-  <header>
-    <div class="header-inner">
-      <div class="logo-area">
-        <img src="J&WLOGO.png" alt="J&W Windows logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" onload="this.nextElementSibling.style.display='none';" />
-      </div>
-      <div class="brand-center">
-        <div class="company-name">J&amp;W Windows</div>
-        <div class="tagline">Family Owned and Operated</div>
-      </div>
-      <div class="header-phone">Call us: +1 (484)-356-4168</div>
-    </div>
-  </header>
-
-  
-  <nav>
+  <!-- ── Navigation ────────────────────────────────── -->
+  <nav class="nav-root" x-data="nav" :class="{ scrolled: scrolled }">
     <div class="nav-inner">
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <a href="/" class="nav-logo" @click="closeMenu()">
+        <img src="J&WLOGO.png" alt="J&W Windows" />
+        <span class="nav-logo-text hidden sm:block">J&amp;W Windows</span>
+      </a>
+      <ul class="nav-links list-none m-0 p-0">
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="/about/" class="nav-link">About</a></li>
+        <li><a href="/services/" class="nav-link">Services</a></li>
+        <li><a href="/gallery/" class="nav-link">Gallery</a></li>
+        <li><a href="/reviews/" class="nav-link">Reviews</a></li>
+        <li><a href="/contact/" class="nav-link">Contact</a></li>
       </ul>
-      <a href="contact.html" class="cta-btn">Get a Free Quote</a>
+      <a href="/contact/" class="nav-cta">Get a Free Quote</a>
+      <button class="hamburger" @click="toggleMenu()" aria-label="Toggle menu">
+        <span :class="{ 'rotate-45 translate-y-2': menuOpen }"></span>
+        <span :class="{ 'opacity-0': menuOpen }"></span>
+        <span :class="{ '-rotate-45 -translate-y-2': menuOpen }"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" x-cloak :class="{ open: menuOpen }">
+      <a href="/" @click="closeMenu()">Home</a>
+      <a href="/about/" @click="closeMenu()">About</a>
+      <a href="/services/" @click="closeMenu()">Services</a>
+      <a href="/gallery/" @click="closeMenu()">Gallery</a>
+      <a href="/reviews/" @click="closeMenu()">Reviews</a>
+      <a href="/contact/" @click="closeMenu()">Contact</a>
+      <a href="/contact/" class="mobile-cta" @click="closeMenu()">Get a Free Quote</a>
     </div>
   </nav>
 
-  
   <main>
 
-    
+    <!-- ── Hero ──────────────────────────────────────── -->
     <section class="hero">
       <video class="hero-video" autoplay muted loop playsinline preload="auto">
         <source src="Windowcleaning.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
+      <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>Crystal Clear Windows,<br>Every Time.</h1>
-        <p>Serving homeowners across Chester, Montgomery, Delaware, and Carbon counties with professional, reliable window and exterior cleaning services.</p>
-        <a href="contact.html" class="cta-btn hero-cta">Request a Free Quote</a>
+        <span class="hero-eyebrow">Chester · Montgomery · Delaware · Carbon</span>
+        <h1 class="hero-h1">Crystal Clear,<br>Every Time.</h1>
+        <p class="hero-sub">Professional window and exterior cleaning by the owners themselves. No crews. No shortcuts.</p>
+        <div class="hero-actions">
+          <a href="/contact/" class="btn-primary">Request a Free Quote</a>
+          <a href="/services/" class="btn-ghost">View Services</a>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+        <span class="text-xs tracking-widest uppercase">Scroll</span>
+        <div class="w-px h-10 bg-white/20"></div>
       </div>
     </section>
 
-    
-    <section class="features">
-      <h2>Why Homeowners Choose J&amp;W</h2>
-      <div class="feature-cards">
-        <div class="card">
-          <h3>Attention to Detail</h3>
-          <p>We clean every pane, sill, and frame - not just the glass. Your windows will look professionally cleaned because they are.</p>
+    <!-- ── Trust Strip ────────────────────────────────── -->
+    <div class="trust-strip">
+      <div class="trust-strip-inner">
+        <div class="trust-item"><span class="dot"></span>Owner on every job</div>
+        <div class="trust-item"><span class="dot"></span>Fully insured</div>
+        <div class="trust-item"><span class="dot"></span>BBB Accredited</div>
+        <div class="trust-item"><span class="dot"></span>Free estimates</div>
+        <div class="trust-item"><span class="dot"></span>+1 (484)-356-4168</div>
+      </div>
+    </div>
+
+    <!-- ── Services Grid ──────────────────────────────── -->
+    <section class="section-light">
+      <div class="section-inner">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="section-label">What We Do</span>
+            <h2 class="section-heading">Our Services</h2>
+          </div>
+          <a href="/services/" class="text-sky text-sm font-semibold tracking-wide uppercase hover:underline self-start md:self-auto">
+            See pricing &amp; details →
+          </a>
         </div>
-        <div class="card">
-          <h3>Quick Response</h3>
-          <p>We show up on time and get the job done so you can get back to your day.</p>
-        </div>
-        <div class="card">
-          <h3>Fully Insured</h3>
-          <p>Licensed and insured for your peace of mind. We treat your home with the same care we'd give our own.</p>
+        <div class="service-grid">
+          <div class="service-tile group">
+            <img src="MeunierHouseWindowExtension.PNG" alt="Exterior window cleaning" class="service-tile-img" style="object-position: center top;" />
+            <div class="service-tile-body">
+              <h3 class="service-tile-title">Exterior Cleaning</h3>
+              <p class="service-tile-text">Glass, frames, sills, tracks, garage panes, storm doors, and skylights.</p>
+              <a href="/services/" class="service-tile-link">Details →</a>
+            </div>
+          </div>
+          <div class="service-tile group">
+            <img src="Interior CLean.png" alt="Interior window cleaning" class="service-tile-img" style="object-position: center top;" />
+            <div class="service-tile-body">
+              <h3 class="service-tile-title">Interior Cleaning</h3>
+              <p class="service-tile-text">Spotless, streak-free interior glass without disturbing your home.</p>
+              <a href="/services/" class="service-tile-link">Details →</a>
+            </div>
+          </div>
+          <div class="service-tile group">
+            <img src="SolarPanels.PNG" alt="Solar panel cleaning" class="service-tile-img" style="object-position: center 15%;" />
+            <div class="service-tile-body">
+              <h3 class="service-tile-title">Solar Panels</h3>
+              <p class="service-tile-text">Safe, surface-protecting panel cleaning to restore clarity.</p>
+              <a href="/services/" class="service-tile-link">Details →</a>
+            </div>
+          </div>
+          <div class="service-tile group">
+            <img src="Soft Scrub.png" alt="Gutters and soft scrubs" class="service-tile-img" />
+            <div class="service-tile-body">
+              <h3 class="service-tile-title">Gutters &amp; Soft Scrubs</h3>
+              <p class="service-tile-text">Gutter debris removal plus soft scrubs for siding, brick, and exteriors.</p>
+              <a href="/services/" class="service-tile-link">Details →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    
-    <section class="testimonial">
-      <div class="testimonial-inner">
-        <div class="stars">★★★★★</div>
-        <blockquote>“Jon and Will offer a premium service. They cleaned my windows inside and out. They clearly take pride in their work. Two hard working young men, and they will be coming back next year.”</blockquote>
-        <cite>— Jenny, Malvern, PA</cite>
+    <!-- ── Pull Quote ─────────────────────────────────── -->
+    <section class="section-dark">
+      <div class="section-inner max-w-4xl">
+        <span class="section-label text-sky-light">Customer Review</span>
+        <blockquote class="pull-quote text-white mt-4 mb-8">
+          "Jon and Will offer a premium service. They cleaned my windows inside and out. They clearly take pride in their work. Two hard working young men, and they will be coming back next year."
+        </blockquote>
+        <p class="text-white/50 text-sm font-semibold tracking-wide uppercase">— Jenny, Malvern, PA</p>
+        <a href="/reviews/" class="inline-block mt-8 text-sky text-sm font-semibold tracking-wide uppercase hover:underline">Read more reviews →</a>
       </div>
     </section>
 
-    
-    <section class="services-preview">
-      <h2>Our Services</h2>
-      <div class="service-cards">
-        <div class="service-card">
-          <img src="MeunierHouseWindowExtension.PNG" alt="Exterior window cleaning" class="service-image exterior-image" />
-          <h3>Exterior Cleaning</h3>
-          <p>Glass, frames, sills, tracks, garage door panes, sliders, storm doors, and skylights cleaned with care.</p>
-          <a href="services.html" class="learn-more">Learn More</a>
-        </div>
-        <div class="service-card">
-          <img src="Interior CLean.png" alt="Interior window cleaning" class="service-image interior-image" />
-          <h3>Interior Cleaning</h3>
-          <p>Detailed interior window cleaning that leaves glass spotless without disturbing your home.</p>
-          <a href="services.html" class="learn-more">Learn More</a>
-        </div>
-        <div class="service-card">
-          <img src="SolarPanels.PNG" alt="Solar panel cleaning" class="service-image solar-image" />
-          <h3>Solar Panel Cleaning</h3>
-          <p>Safe panel cleaning to help improve utilization and restore clarity for rooftop solar systems.</p>
-          <a href="services.html" class="learn-more">Learn More</a>
-        </div>
-        <div class="service-card">
-          <img src="Soft Scrub.png" alt="Soft scrubs for siding and brick" class="service-image" />
-          <h3>Gutters &amp; Soft Scrubs</h3>
-          <p>Gutter debris removal plus soft scrubs for siding, brick, and other exterior surfaces.</p>
-          <a href="services.html" class="learn-more">Learn More</a>
+    <!-- ── About Teaser ───────────────────────────────── -->
+    <section class="section-mid">
+      <div class="section-inner">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <span class="section-label">Who We Are</span>
+            <h2 class="section-heading text-ink">Family-run.<br>Owner-operated.</h2>
+            <p class="text-ink-500 mt-5 leading-relaxed">Jon and Will Meunier started J&amp;W Windows because they saw what happens when service businesses get too big — quality slips and the owners disappear. So at J&amp;W, one of them is on every single job.</p>
+            <p class="text-ink-500 mt-4 leading-relaxed">Over 30 jobs in, they still show up in person, do the work, and stand behind it.</p>
+            <a href="/about/" class="inline-block mt-8 border-b-2 border-sky text-ink text-sm font-semibold tracking-wide uppercase pb-0.5 hover:text-sky transition-colors duration-150">Meet Jon &amp; Will →</a>
+          </div>
+          <div class="overflow-hidden">
+            <img src="JON&WILL.png" alt="Jon and Will Meunier" class="w-full h-auto object-cover object-top" style="max-height: 520px;" />
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- ── CTA Band ───────────────────────────────────── -->
+    <div class="cta-band">
+      <h2>Ready for Spotless Windows?</h2>
+      <p>Get a free, no-obligation estimate for your home. We typically respond within 24 hours.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contact/" class="btn-white">Request a Free Quote</a>
+        <a href="tel:+14843564168" class="btn-white-outline">Call (484)-356-4168</a>
+      </div>
+    </div>
 
   </main>
 
-  
-  <footer>
+  <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-links">
-        <a href="index.html">Home</a> |
-        <a href="services.html">Services</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="about.html">About</a> |
-        <a href="reviews.html">Reviews</a> |
-        <a href="gallery.html">Gallery</a>
+      <div class="footer-brand">
+        <h3>J&amp;W Windows</h3>
+        <p class="text-sm leading-relaxed text-white/50 mt-2">Family owned and operated window cleaning across Chester, Montgomery, Delaware, and Carbon counties, PA.</p>
+        <p class="text-sm mt-4 text-white/50">
+          <a href="tel:+14843564168" class="text-white/60 hover:text-white transition-colors duration-150 no-underline">(484)-356-4168</a><br>
+          <a href="mailto:23jmeunier@gmail.com" class="text-white/60 hover:text-white transition-colors duration-150 no-underline">23jmeunier@gmail.com</a>
+        </p>
       </div>
+      <nav class="footer-nav">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/reviews/">Reviews</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
       <div class="footer-contact">
-        Phone: +1 (484)-356-4168 &nbsp;|&nbsp;
-        Email: 23jmeunier@gmail.com &nbsp;|&nbsp;
-        <a href="https://www.bbb.org" target="_blank" rel="noopener">BBB Accredited Business</a>
+        <h4>Service Area</h4>
+        <p class="text-white/50 text-sm leading-relaxed">Chester County · Montgomery County · Delaware County · Carbon County (including Lake Harmony &amp; Towamensing Trails)</p>
+        <p class="mt-5"><a href="https://www.bbb.org" target="_blank" rel="noopener" class="text-sky text-sm font-semibold hover:underline">BBB Accredited Business ↗</a></p>
       </div>
-      <p class="copyright">Copyright &copy; 2026 J&amp;W Windows. All Rights Reserved.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 J&amp;W Windows. All rights reserved.</span>
+      <a href="https://g.page/r/CaxtA_Q3yh1cEAI/review" target="_blank" rel="noopener" class="text-white/40 hover:text-white/70 transition-colors duration-150 no-underline">Leave a Google Review ↗</a>
     </div>
   </footer>
 
 </body>
 </html>
-
-
