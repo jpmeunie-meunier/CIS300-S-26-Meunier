@@ -87,54 +87,65 @@
             <span class="section-label">Request a Quote</span>
             <h2 class="font-display text-2xl text-ink mb-8">Tell us about your home</h2>
 
-            <form action="#" method="post" class="space-y-6">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label for="name" class="field-label">Full Name <span class="text-sky">*</span></label>
-                  <input type="text" id="name" name="name" placeholder="Jane Smith" required class="field-input" />
+            <div x-data="quoteForm">
+              <form @submit.prevent="submit($event)" x-show="!sent" class="space-y-6">
+                <input type="hidden" name="_subject" value="New Quote Request — J&amp;W Windows" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="field-label">Full Name <span class="text-sky">*</span></label>
+                    <input type="text" id="name" name="Full Name" placeholder="Jane Smith" required class="field-input" />
+                  </div>
+                  <div>
+                    <label for="phone" class="field-label">Phone Number <span class="text-sky">*</span></label>
+                    <input type="tel" id="phone" name="Phone" placeholder="(484) 555-0100" required class="field-input" />
+                  </div>
                 </div>
                 <div>
-                  <label for="phone" class="field-label">Phone Number <span class="text-sky">*</span></label>
-                  <input type="tel" id="phone" name="phone" placeholder="(484) 555-0100" required class="field-input" />
+                  <label for="email" class="field-label">Email Address <span class="text-sky">*</span></label>
+                  <input type="email" id="email" name="Email" placeholder="jane@example.com" required class="field-input" />
                 </div>
-              </div>
-              <div>
-                <label for="email" class="field-label">Email Address <span class="text-sky">*</span></label>
-                <input type="email" id="email" name="email" placeholder="jane@example.com" required class="field-input" />
-              </div>
-              <div>
-                <label for="address" class="field-label">Property Address <span class="text-sky">*</span></label>
-                <input type="text" id="address" name="address" placeholder="123 Main Street, Wayne, PA 19087" required class="field-input" />
-              </div>
-              <div>
-                <label class="field-label">Services Interested In <span class="text-sky">*</span></label>
-                <div class="mt-2 space-y-3">
-                  <label class="checkbox-label"><input type="checkbox" name="services[]" value="exterior" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Exterior Window Cleaning</label>
-                  <label class="checkbox-label"><input type="checkbox" name="services[]" value="interior" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Interior Window Cleaning</label>
-                  <label class="checkbox-label"><input type="checkbox" name="services[]" value="screens" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Screen Cleaning</label>
-                  <label class="checkbox-label"><input type="checkbox" name="services[]" value="solar" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Solar Panel Cleaning</label>
-                  <label class="checkbox-label"><input type="checkbox" name="services[]" value="gutters" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Gutter Cleaning</label>
-                  <label class="checkbox-label"><input type="checkbox" name="services[]" value="soft-scrubs" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Soft Scrubs for Siding &amp; Brick</label>
+                <div>
+                  <label for="address" class="field-label">Property Address <span class="text-sky">*</span></label>
+                  <input type="text" id="address" name="Property Address" placeholder="123 Main Street, Wayne, PA 19087" required class="field-input" />
                 </div>
+                <div>
+                  <label class="field-label">Services Interested In <span class="text-sky">*</span></label>
+                  <div class="mt-2 space-y-3">
+                    <label class="checkbox-label"><input type="checkbox" name="Services[]" value="Exterior Window Cleaning" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Exterior Window Cleaning</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Services[]" value="Interior Window Cleaning" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Interior Window Cleaning</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Services[]" value="Screen Cleaning" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Screen Cleaning</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Services[]" value="Solar Panel Cleaning" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Solar Panel Cleaning</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Services[]" value="Gutter Cleaning" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Gutter Cleaning</label>
+                    <label class="checkbox-label"><input type="checkbox" name="Services[]" value="Soft Scrubs for Siding &amp; Brick" class="rounded border-ink-600/30 text-sky focus:ring-sky/20" /> Soft Scrubs for Siding &amp; Brick</label>
+                  </div>
+                </div>
+                <div>
+                  <label for="windows" class="field-label">Approximate Number of Windows</label>
+                  <select id="windows" name="Number of Windows" class="field-select">
+                    <option value="" disabled selected>Select a range</option>
+                    <option value="Under 20">Under 20</option>
+                    <option value="20 – 30">20 – 30</option>
+                    <option value="30 – 40">30 – 40</option>
+                    <option value="40+">40+</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="notes" class="field-label">Anything Else We Should Know?</label>
+                  <textarea id="notes" name="Notes" placeholder="E.g. two-story home, hard-to-reach windows, preferred scheduling, etc." class="field-textarea"></textarea>
+                </div>
+                <p x-show="error" x-text="error" class="text-sm font-semibold text-red-700" role="alert"></p>
+                <button type="submit" :disabled="sending" class="w-full py-4 bg-ink text-white text-sm font-semibold tracking-wide uppercase hover:bg-sky transition-colors duration-150 cursor-pointer border-none disabled:opacity-60 disabled:cursor-wait">
+                  <span x-text="sending ? 'Sending…' : 'Submit Quote Request'">Submit Quote Request</span>
+                </button>
+              </form>
+              <div x-show="sent" x-cloak class="border border-sky/40 bg-sky/5 p-10 text-center">
+                <h3 class="font-display text-2xl text-ink mb-3">Request received!</h3>
+                <p class="text-ink-500 leading-relaxed">Thanks for reaching out — we'll get back to you within 24 hours to schedule your free estimate.</p>
               </div>
-              <div>
-                <label for="windows" class="field-label">Approximate Number of Windows</label>
-                <select id="windows" name="windows" class="field-select">
-                  <option value="" disabled selected>Select a range</option>
-                  <option value="under20">Under 20</option>
-                  <option value="20to30">20 – 30</option>
-                  <option value="30to40">30 – 40</option>
-                  <option value="40plus">40+</option>
-                </select>
-              </div>
-              <div>
-                <label for="notes" class="field-label">Anything Else We Should Know?</label>
-                <textarea id="notes" name="notes" placeholder="E.g. two-story home, hard-to-reach windows, preferred scheduling, etc." class="field-textarea"></textarea>
-              </div>
-              <button type="submit" class="w-full py-4 bg-ink text-white text-sm font-semibold tracking-wide uppercase hover:bg-sky transition-colors duration-150 cursor-pointer border-none">
-                Submit Quote Request
-              </button>
-            </form>
+            </div>
           </div>
 
         </div>
