@@ -41,6 +41,20 @@ npm run preview  # preview the production build locally
 
 Media assets (images and videos) live at the project root and are referenced via relative paths from each page (`../filename.ext` from subdirectories).
 
+### Adding new images
+
+Camera/phone exports (especially PNG or HEIC) are huge — tens of megabytes at full resolution, way bigger than a card or full-width photo ever needs. Vite only bundles files that are actually referenced in an `<img src>`/`<video src>`, so an unoptimized original that gets linked from HTML ships straight to visitors as-is: slow to load and soft/aliased once the browser squishes it down to display size.
+
+Before linking a new photo from any page, resize + compress it to a `.jpg` with `ffmpeg` (already used for this — see git history):
+
+```bash
+ffmpeg -i "media/NewPhoto.png" -vf "scale=if(gt(iw\,ih)\,1600\,-2):if(gt(iw\,ih)\,-2\,1600)" -q:v 3 "media/NewPhoto.jpg"
+```
+
+- Caps the long edge at 1600px (plenty for any layout on this site, including retina) — the `if(gt(...))` just picks whichever of width/height is the long edge, so it works for both landscape and portrait shots.
+- `-q:v 3` is high-quality JPEG compression (1=best/largest, 31=worst/smallest); a 30–40MB PNG typically comes out under 1MB with no visible quality loss at display size.
+- Reference the resulting `.jpg` from HTML, not the original. Keep the original file around in `media/` if you want an archive — since it's unreferenced, Vite won't bundle it either way.
+
 ## Pages
 
 | Route | File | Description |

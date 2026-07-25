@@ -171,19 +171,19 @@
 
   /* SERVICE CARDS */
   .service-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-ink-600 border border-ink-600;
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10;
   }
 
   .service-tile {
-    @apply bg-cream overflow-hidden cursor-default;
+    @apply bg-cream overflow-hidden cursor-default border border-ink-600/15 transition-colors duration-300 hover:border-ink-600/40;
   }
 
   .service-tile-img {
-    @apply w-full h-72 object-cover object-center transition-transform duration-500 group-hover:scale-105;
+    @apply w-full h-64 sm:h-72 object-cover object-center transition-transform duration-500 group-hover:scale-105;
   }
 
   .service-tile-body {
-    @apply p-8;
+    @apply p-8 lg:p-9;
   }
 
   .service-tile-title {
